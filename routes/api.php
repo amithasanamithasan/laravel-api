@@ -26,5 +26,7 @@ use App\Http\Controllers\UserApiController;
 //         'massage'=>'welcome to laravel API']);
 
 // });
-
+// get api for fetch user
 Route::get('/users/{id?}',[UserApiController::class,'showUser']);
+// post api for add users
+Route::post('/add-user',[UserApiController::class,'addUser']);
