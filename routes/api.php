@@ -34,3 +34,5 @@ Route::post('/add-user',[UserApiController::class,'addUser']);
 Route::post('/add-multiple-user',[UserApiController::class,'addMultipleUser']);
 // api for update users details
 Route::put('/update-user-details/{id}',[UserApiController::class,'updateUserDetails']);
+// patch api for update single record
+Route::patch('/update-single-record/{id}',[UserApiController::class,'updateSingleRecord']);

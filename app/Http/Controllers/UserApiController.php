@@ -141,6 +141,40 @@ class UserApiController extends Controller
 
         }
     }
+    // patch single update record
+    public function updateSingleRecord(Request $request,$id){
+        if ($request->ismethod('patch')){
+            $data = $request->all();
+            // return $data;
 
+            // validation custome
 
+            $rules=[
+                'name'=>'required',
+                // 'email'=>'required|email|unique:users',
+                // 'password'=>'required',
+            ];
+
+            $customMessage =[
+                'name.required'=>'Name is required',
+                // 'email.required'=>'Email is required',
+                // 'email.email'=>'Email  must be a valid email',
+                // 'password.required'=>'password is required',
+            ];
+               $validator = Validator::make( $data,$rules,$customMessage);
+               if($validator->fails()){
+                return response()->json($validator->errors(),422);
+               }
+            //    code single user jonno kora hoiche nicher ta code ta kora hoace
+            $user = User::findOrFail($id);
+            $user->name =$data['name'];
+            // $user->email =$data['email'];
+            // $user->password=bcrypt($data['password']);
+            $user->save();
+            $massage='user succesfully Updeated';
+            return response()->json(['message'=>$massage],202);
+
+        }
+    }
+    
 }
