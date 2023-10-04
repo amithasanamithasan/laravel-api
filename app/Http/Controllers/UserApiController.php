@@ -202,4 +202,18 @@ public function deleteUserJson(Request $request){
 
     
 }
+//  multiple users deleted for api 
+// explode() akta method nia nicche
+// url e jokon multiple id patha bo sie  id gulake $ids dia dhore
+// $ids variable dia dhore explode korbo (',') madhome alada kore dibo rakhe dibo $id=variable moddhe
+// Users model roeche query chalate pari whwreIn kore database ji 'id'ta roecha match korabo
+// karsathe amr ji $ids gula pacche tr sathe jigula match korbe sie gula delete kore dibe
+
+
+public function deleteMultiple($ids){
+    $ids = explode(',',$ids);
+    User::whereIn('id',$ids)->delete();
+    $message ='User Successfully Deleted';
+    return response()->json(['message'=>$message],200);
+}
 }

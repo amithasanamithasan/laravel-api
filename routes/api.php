@@ -42,3 +42,5 @@ Route::delete('/delete-single-record/{id}',[UserApiController::class,'DeleteSing
 // Detete api for delete single user with json
 // json formet e delete korte gale id use kora lagbe na
 Route::delete('/delete-single-user-with-json',[UserApiController::class,'deleteUserJson']);
+// multiple users deleted for api jahuto mutiple users delete korbo tr jonno {ids} dwa lagbe
+Route::delete('/multiple-user-delete/{ids}',[UserApiController::class,'deleteMultiple']);
