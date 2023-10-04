@@ -38,4 +38,7 @@ Route::put('/update-user-details/{id}',[UserApiController::class,'updateUserDeta
 Route::patch('/update-single-record/{id}',[UserApiController::class,'updateSingleRecord']);
 
 // Deleted api for delete single users data table
-Route::delete('/delete-single-record/{id}',[UserApiController::class,'DeleteSingleRecord']); 
+Route::delete('/delete-single-record/{id}',[UserApiController::class,'DeleteSingleRecord']);
+// Detete api for delete single user with json
+// json formet e delete korte gale id use kora lagbe na
+Route::delete('/delete-single-user-with-json',[UserApiController::class,'deleteUserJson']);

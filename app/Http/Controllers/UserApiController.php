@@ -186,4 +186,20 @@ class UserApiController extends Controller
 
 
     }
+    // Detete api for delete  user with json
+// json formet e delete korte gale id use kora lagbe na
+   
+    
+public function deleteUserJson(Request $request){
+
+    if ($request->isMethod('delete'))
+    {
+      $data =$request->all();
+      User:: where('id',$data['id'])->delete();
+      $message ='User Successfully Deleted';
+      return response()->json(['message'=>$message],200);
+    }
+
+    
+}
 }
