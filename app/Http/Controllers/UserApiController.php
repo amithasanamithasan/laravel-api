@@ -176,5 +176,14 @@ class UserApiController extends Controller
 
         }
     }
-    
+    // deleted single data deleted user table for api 
+    // 200 is a statuse ok......
+    public function DeleteSingleRecord($id=null)
+    {
+        User:: findOrFail($id)->delete();
+        $message = 'user Succesfully Deleted';
+        return response()->json(['message'=>$message],202);
+
+
+    }
 }
