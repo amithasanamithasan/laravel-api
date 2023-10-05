@@ -219,7 +219,11 @@ public function deleteMultiple($ids){
 
 
 // delete multiple user with json
-
+// Request class ta nita hobe Request class er ki thake akta  Object($request)
+// er por akta condition chalate pari if($request)-> ai $request isMthode ta (delete) hoi tahole ki hobe ai kaj ta 
+// $data amra akta variable nia nie akn thake,orthat joto data assbe json thake sagula ke ki korbo amra dhorbo aikhan thake ->all()
+// tarpor amra akta query chala te pari,prothome amra User:: model ta dhorlam aikhane whereIn kore ,database er ji 'id' ta dhore aitake match korbo kar sathe $data['ids']
+// ai 'ids' ta konta url e jeson formet e send krbo aita akta name akn amra aikhan thake ->delete() korte pari
 public function deleteMultipleUserJson(Request $request){
     if($request->isMethod('delete')){
         $data =$request->all();
@@ -229,4 +233,33 @@ public function deleteMultipleUserJson(Request $request){
     }
 
 }
+
+
+
+
+  public function deleteAuthorizationMultipleUserJson(Request $request){
+   $header =$request->header('Authorization');
+    if($header==''){
+    $message ='Authorization is required';
+    return response()->json(['message'=>$message],422);
+   }else{
+
+    if($header=='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImFtaXRoYXNhbmZheXNhbCIsImlhdCI6MTUxNjIzOTAyMn0.FcCsPUIKynkdXi8TaaK_3K9rn5F2wwISjts7PrqhJDQ')
+    {
+        if($request->isMethod('delete'))
+        {
+            $data =$request->all();
+            User::whereIn('id',$data['ids'])->delete();
+            $message ='User Successfully Deleted';
+        return response()->json(['message'=>$message],200);
+    }
+    }else{
+        $message ='Authorization doesnot match';
+        return response()->json(['message'=>$message],422);
+    }
+}
+
+ 
+}
+
 }

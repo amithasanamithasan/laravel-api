@@ -46,3 +46,5 @@ Route::delete('/delete-single-user-with-json',[UserApiController::class,'deleteU
 Route::delete('/multiple-user-delete/{ids}',[UserApiController::class,'deleteMultiple']);
 // jason formet for multiple users deleted
 Route::delete('/delete-multiple-user-with-json',[UserApiController::class,'deleteMultipleUserJson']);
+// jwt use kore delete  authorization for rest api
+Route::delete('/delete-multiple-user-authorization-json',[UserApiController::class,'deleteAuthorizationMultipleUserJson']);
