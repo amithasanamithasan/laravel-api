@@ -11,13 +11,24 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
         <!-- Styles -->
-        <style>
-            .h1{
-                font-style: italic;
-            }
-            /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */*,::after,
-        </style>
-   <body>
-    <h1 style="text-align:center">WELCOME TO OUR LARAVEL REST API CREATED </h1>
-    </body>
+        <style type="text/css">
+        .text{
+
+/* text center e nier jonno text-align:center use kora hoice */
+            text-align: center;
+             margin-top:40px;
+             font-size: 80px;
+             /* text-shadow: x-axis y-axis blue -y barile upore utbe  ; */
+             text-shadow: 0px 0px 1px red;
+
+        }
+
+             </style>
+                        {{-- /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */*,::after, --}}
+         <body>
+            <div>
+                <h3 style='text-align:center; margin-top:40px;font-size:80px;    text-shadow:10px 5px 4px rgb(10, 149, 214)'> WELCOME TO OUR LARAVEL PROJECT REST API </h3>
+            </div>
+  
+        </body>
 </html>
